@@ -53,6 +53,7 @@ const MyProfile = () => {
             .then(result => {
                 setUserInfo(result);
                 addNotification('Username updated successfully', types.success);
+                e.target.reset();
             })
             .catch(err => {
                 console.log(err);
@@ -83,6 +84,7 @@ const MyProfile = () => {
                 console.log(result)
                 setUserInfo(result);
                 addNotification('About Me updated successfully', types.success);
+                e.target.reset();
             })
             .catch(err => {
                 console.log(err);
