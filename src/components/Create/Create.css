@@ -1,4 +1,3 @@
-
 .stadium-form-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -57,8 +56,24 @@
 	font-weight: bold;
 }
 
-.form-group textarea{
+.form-group textarea {
 	resize: none;
+}
+
+.form-group-image {
+	display: flex;
+	justify-content: center;
+}
+
+.upload-image-input {
+	width: 1%;
+	visibility: hidden;
+}
+
+.upload-image-field {
+	font-size: 20px;
+	width: 28%;
+	text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
@@ -77,4 +92,21 @@
 	.stadium-form-input {
 		width: 90%;
 	}
+
+	.form-group-image {
+		display: flex;
+		align-items: center;
+	}
+	
+	.upload-image-input {
+		width: 1%;
+		visibility: hidden;
+	}
+	
+	.upload-image-field {
+		font-size: 20px;
+		width: 98%;
+		text-align: center;
+	}
+
 }

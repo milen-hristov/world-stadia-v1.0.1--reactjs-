@@ -4,9 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useUpdateContext } from '../../contexts/UpdateContextFooter.js';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import axios from 'axios';
 
 import * as stadiumService from '../../services/stadiumService.js';
 import getGoogleMapLinkEmbed from '../../helpers/getGoogleMapEmbedLink.js';
+import { BASEURLIMAGEOPTIONS } from '../../config/baseUrlImageServer.js';
 import errorsCheck from '../../helpers/errorsCheck.js';
 import countryList from '../../helpers/countryList.js'
 import '../Create/Create.css';
@@ -29,12 +31,29 @@ const Create = () => {
         description: false
     });
 
+    let [stadiumImg, setstadiumImg] = useState('');
+
+    const onFileChange = (files) => {
+        const imageFormData = new FormData();
+        imageFormData.append("file", files[0]);
+        imageFormData.append("upload_preset", BASEURLIMAGEOPTIONS.cloudinaryPreset);
+
+        axios.post(`${BASEURLIMAGEOPTIONS.cloudinary}/image/upload`, imageFormData)
+            .then(res => {
+                setstadiumImg(res.data.url);
+            }).catch(err => {
+                console.log(err);
+                addNotification(`An error occurred - ${err.message}`, types.error);
+            })
+    }
+
     const onStadiumCreate = (e) => {
 
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
 
+        let imageUrl = stadiumImg;
         let name = formData.get('name').trim().toLowerCase();
         let country = formData.get('country').trim();
         let city = formData.get('city').trim();
@@ -42,8 +61,6 @@ const Create = () => {
         let clubs = formData.get('clubs').trim();
         let addressRaw = formData.get('address').trim();
         let address = getGoogleMapLinkEmbed(addressRaw).toLowerCase();
-
-        let imageUrl = formData.get('imageUrl').trim();
         let description = formData.get('description').trim();
 
         let newStadium = {
@@ -137,15 +154,16 @@ const Create = () => {
         }
     };
 
-    const validateImageUrl = (e) => {
-        let currentName = e.target.value;
+    /* add url link */
+    // const validateImageUrl = (e) => {
+    //     let currentName = e.target.value;
 
-        if (!currentName.match(/^https?:\/{2}/)) {
-            setErrors(state => ({ ...state, imageUrl: 'Please add Image url' }));
-        } else {
-            setErrors(state => ({ ...state, imageUrl: false }));
-        }
-    };
+    //     if (!currentName.match(/^https?:\/{2}/)) {
+    //         setErrors(state => ({ ...state, imageUrl: 'Please add Image url' }));
+    //     } else {
+    //         setErrors(state => ({ ...state, imageUrl: false }));
+    //     }
+    // };
 
     const validateDescription = (e) => {
         let currentName = e.target.value;
@@ -171,6 +189,22 @@ const Create = () => {
                         : null
                     }
                 </article>
+
+                {/* add url link */}
+                {/* <article className="form-group">
+                    <input type="URL" name="imageUrl" id="imageUrl" className="stadium-form-input" placeholder="Image URL *" onChange={validateImageUrl} required />
+                    {errors.imageUrl
+                        ? <p className="error">{errors.imageUrl}</p>
+                        : null
+                    }
+                </article> */}
+
+                {/* upload image */}
+                <article className="form-group-image">
+                    <label className="upload-image-field btn-save" htmlFor="upload-image">Upload stadium image</label>
+                    <input className="upload-image-input" type="file" id='upload-image' onChange={(e) => onFileChange(e.target.files)} accept="image/png, image/gif, image/jpeg" required />
+                </article>
+
                 <article className="form-group">
                     <select id="type" name="country" className="stadium-form-input" onChange={validateCountry} >
                         {countryList.map(x => <option key={x} value={x}>{x}</option>)}
@@ -211,13 +245,7 @@ const Create = () => {
                     }
                 </article>
 
-                <article className="form-group">
-                    <input type="URL" name="imageUrl" id="imageUrl" className="stadium-form-input" placeholder="Image URL *" onChange={validateImageUrl} required />
-                    {errors.imageUrl
-                        ? <p className="error">{errors.imageUrl}</p>
-                        : null
-                    }
-                </article>
+
 
                 <article className="form-group">
                     <article className="form-group">
