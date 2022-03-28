@@ -116,6 +116,17 @@ const Details = ({
                         <article className="stadium-address">
                             <iframe title={stadium._id} src={stadium.address}> </iframe>
                         </article>
+                        <article className="stadium-buttons">
+                            {user._id && (user._id === stadium._ownerId
+                                ? (
+                                    <article className="buttons">
+                                        <p><Link to={`/stadiums/details/${stadium._id}/delete`} className="btn-delete">Delete</Link></p>
+                                        <p><Link to={`/stadiums/details/${stadium._id}/edit`} className="btn-edit">Edit</Link></p>
+                                    </article>
+                                )
+                                : null
+                            )}
+                        </article>
                     </section>
                     <section className="stadium-column-right">
                         <article className="stadium-header">
@@ -153,17 +164,7 @@ const Details = ({
                                 </tbody>
                             </table>
                         </article>
-                        <article className="stadium-buttons">
-                            {user._id && (user._id === stadium._ownerId
-                                ? (
-                                    <article className="buttons">
-                                        <p><Link to={`/stadiums/details/${stadium._id}/delete`} className="btn-delete">Delete</Link></p>
-                                        <p><Link to={`/stadiums/details/${stadium._id}/edit`} className="btn-edit">Edit</Link></p>
-                                    </article>
-                                )
-                                : null
-                            )}
-                        </article>
+                       
                     </section>
                 </section>
                 <section className="stadium-description">

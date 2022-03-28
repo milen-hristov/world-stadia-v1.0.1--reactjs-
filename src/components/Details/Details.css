@@ -94,6 +94,7 @@ main {
 .buttons {
 	display: flex;
 	justify-content: space-between;
+	margin: 8%;
 }
 
 .btn-edit {
@@ -251,7 +252,7 @@ table tbody tr td {
 	}
 
 	.buttons {
-		margin-bottom: 10%;
+		margin: 10%;
 	}
 
 	.info-image-container {
