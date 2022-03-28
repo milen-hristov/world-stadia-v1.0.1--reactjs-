@@ -1,0 +1,80 @@
+.header-section {
+	background-color: var(--secondary-color);
+	background-image: url("../../images/header.png");
+}
+
+.header-row {
+	display: flex;
+	justify-content: center;
+}
+
+.header-row,
+.header-row li {
+	list-style: none;
+	margin: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: transform .25s cubic-bezier(.7, .98, .86, .98), box-shadow .25s cubic-bezier(.7, .98, .86, .98);
+	cursor: pointer;
+}
+
+.header-row li a {
+	text-decoration: none;
+	color: white;
+	display: block;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.header-row li a:hover {
+	transform: scale(1.1);
+	color: var(--main-color);
+}
+
+.header-row .active {
+	border-bottom: 2px solid var(--main-color);
+}
+
+.notification-world-stadia {
+	color: var(--main-color);
+	text-align: center;
+	padding-bottom: 1%;
+}
+
+/* .is-sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+	animation: 2000ms ease-in-out 0s normal none 1 running fadeInDown;
+	padding-top: 0px;
+	padding-bottom: 0px;
+} */
+
+@media screen and (max-width: 700px) {
+	.header-row,
+	.header-row li {
+		font-size: 16px;
+		font-weight: normal;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 500px) {
+
+	.header-section {
+		max-width: 100%;
+	}
+
+	.header-row,
+	.header-row li {
+		font-size: 12px;
+	}
+
+	.my-stadiums-header {
+		display: none;
+	}
+}

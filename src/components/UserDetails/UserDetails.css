@@ -1,0 +1,107 @@
+.user-profile-details-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.user-profile-image-container {
+	width: 30%;
+	padding: 2%;
+}
+
+.user-profile-image-container img {
+	height: 300px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.user-profile-details-container {
+	width: 50%;
+	padding: 2%;
+}
+
+.user-profile-details-heading span {
+	text-transform: uppercase;
+	font-size: 20px;
+	background-color: var(--main-color);
+	padding: 0 5px;
+}
+
+.user-profile-details-heading-email {
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.user-profile-details-heading-about {
+	margin-top: 5%;
+}
+
+.user-profile-details-heading p {
+	text-align: justify;
+}
+
+.list-items-section {
+	text-align: -webkit-center;
+}
+
+.list-items-results {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 200;
+}
+
+.my-profile-list-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	width: 100%;
+	padding: 1% 5%;
+	justify-content: center;
+}
+
+.my-profile-list-items article {
+	width: calc((100% - 24px) / 5);
+}
+
+.my-profile-comment-card {
+	display: flex;
+	border: 1px solid var(--border-color);
+	width: 40%;
+}
+
+.my-profile-comment-container {
+	width: 100%;
+	padding: 5%;
+	text-align: left;
+}
+
+.my-profile-comment-date {
+	background-color: var(--secondary-color);
+	color: var(--main-color);
+	padding: 0 2%;
+	font-size: 14px;
+}
+
+.my-profile-comment-user a {
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.my-profile-comment-user a:hover {
+	color: var(--main-color);
+}
+
+.my-profile-list-items-section {
+	text-align: -webkit-center;
+}
+
+@media screen and (max-width: 900px) {
+	.my-profile-comment-card {
+		width: 80%;
+	}
+
+	.user-profile-image-container img {
+		height: 150px;
+	}
+}

@@ -1,0 +1,113 @@
+.stadium-users {
+	padding: 2% 5%;
+	width: 100%
+}
+
+.stadium-users-search {
+	text-align: center;
+}
+
+.user-search-input {
+	font-size: 26px;
+	padding-left: 2%;
+	color: var(--random-color);
+}
+
+.stadium-users-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	width: 100%;
+	padding: 1% 5%;
+	justify-content: left;
+}
+
+.stadium-users-all-heading h2 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.user-card {
+	display: flex;
+	width: 20%;
+	flex-direction: column;
+	border: 1px solid var(--border-color);
+	margin: 2%;
+}
+
+.image-container {
+	align-self: center;
+}
+
+.image-container img {
+	height: 100%;
+	width: 200px;
+	padding: 5%;
+	object-fit: contain;
+}
+
+.user-username {
+	background-color: var(--secondary-color);
+	color: var(--main-color);
+	padding: 2%;
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.user-email a {
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.user-email a:hover {
+	color: var(--main-color);
+}
+
+.user-item {
+	padding: 2%;
+	text-align: center;
+}
+
+.stadium-users-container {
+	width: 100%;
+}
+
+.stadium-users-container .stadium-user-result {
+	width: 100%;
+	text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+	.stadium-users-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: center;
+	}
+
+	.image-container img {
+		width: 100px;
+	}
+
+	.user-card {
+		width: 40%;
+	}
+
+	.user-search-input {
+		font-size: 22px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.user-card {
+		width: 80%;
+	}
+
+	.user-search-input {
+		font-size: 14px;
+	}
+}

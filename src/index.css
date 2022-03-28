@@ -1,0 +1,28 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+	font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #ffcc33;
+  --main-var-color: #e2b01b;
+  --secondary-color: #373542;
+  --light-color: #999;
+  --dark-color: #000;
+  --random-color: #aeaeae;
+  --neutral-color: #f7f7f7;
+  --text-color: #3E4548;
+  --danger-color: #C85C5C;
+  --safe-color: #17c560;
+  --border-color: #e7e3e3;
+}

@@ -1,0 +1,291 @@
+main {
+	text-align: -webkit-center;
+}
+
+.stadium-details-wrapper,
+.stadium-description {
+	display: flex;
+	padding: 2% 5%;
+	width: 80%;
+}
+
+.stadium-column-left,
+.stadium-column-right {
+	display: flex;
+	flex-direction: column;
+	margin: 0 2%;
+}
+
+.stadium-column-left {
+	width: 40%;
+}
+
+.stadium-column-right {
+	width: 55%;
+}
+
+.stadium-image-details img {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+}
+
+.stadium-address iframe {
+	width: 100%;
+	height: 250px;
+}
+
+
+.stadium-header {
+	text-align: left;
+}
+
+.stadium-header h3 {
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 400;
+	margin: 1% 0;
+}
+
+.stadium-header .stadium-country {
+	background-color: var(--main-color);
+	padding: 3px 10px;
+	font-size: 18px;
+	color: var(--secondary-color);
+	margin: 1% 0;
+}
+
+.stadium-header h5 {
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: 400;
+	margin: 1% 0;
+}
+
+.btn-like,
+.btn-edit,
+.btn-delete,
+.btn-comment {
+	border: none;
+	padding: 15px 20px;
+	border-radius: 15px;
+	margin: 10px;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	/* align-items: flex-end; */
+	text-decoration: none;
+}
+
+.btn-like,
+.btn-comment {
+	color: var(--main-color);
+	background-color: var(--text-color);
+	border: 2px solid var(--main-color);
+}
+
+.btn-like:hover,
+.btn-comment:hover {
+	color: var(--text-color);
+	background-color: white;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn-edit {
+	color: var(--main-color);
+	background-color: var(--text-color);
+	border: 2px solid var(--main-color);
+}
+
+.btn-delete {
+	color: var(--main-color);
+	background-color: var(--danger-color);
+	border: 2px solid var(--main-color);
+}
+
+.btn-edit:hover {
+	color: var(--text-color);
+	background-color: white;
+}
+
+.btn-delete:hover {
+	color: var(--text-color);
+	background-color: white;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	font-size: 20px;
+	margin-top: 5%;
+	margin-bottom: 8%;
+}
+
+table tbody tr {}
+
+
+table tbody tr th,
+table tbody tr td {
+	border: 1px solid var(--border-color);
+	padding: 5% 2%;
+	font-weight: normal;
+}
+
+table tbody tr th {
+	width: 35%;
+	text-transform: uppercase;
+}
+
+table tbody tr td {
+	width: 65%;
+	background-color: var(--neutral-color);
+	text-transform: capitalize;
+}
+
+.info-image-container {
+	width: 25%;
+}
+
+.info-text-container {
+	width: 70%;
+	text-align: left;
+}
+
+.info-text-container h2 {
+	text-transform: uppercase;
+}
+
+.stadium-comments {
+	padding: 2% 5%;
+	width: 80%;
+}
+
+.stadium-comments-all-heading h2 {
+	text-transform: uppercase;
+}
+
+.stadium-comments-all .comment-card {
+	display: flex;
+	border: 1px solid var(--border-color);
+}
+
+.stadium-comments-all .image-container {
+	width: 35%;
+}
+
+.stadium-comments-all .image-container img {
+	height: 100%;
+	width: 150px;
+	padding: 5% 0;
+	object-fit: contain;
+}
+
+.stadium-comments-all .comment-container {
+	width: 60%;
+	padding: 5% 0;
+	text-align: left;
+}
+
+.stadium-comments-all .comment-container .comment-date {
+	background-color: var(--secondary-color);
+	color: var(--main-color);
+	padding: 0 2%;
+	font-size: 14px;
+}
+
+.stadium-comments-all .comment-container .comment-user h3 a {
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.stadium-comments-all .comment-container .comment-user h3 a:hover {
+	color: var(--main-color);
+}
+
+.stadium-comments .form-input,
+.stadium-comments .form-textarea {
+	width: 80%;
+	resize: none;
+}
+
+.stadium-comments .form-input {
+	background-color: var(--border-color);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.stadium-comments .form-textarea,
+.stadium-comments .form-input {
+	font-size: 26px;
+	padding-left: 2%;
+	color: var(--random-color);
+}
+
+
+@media screen and (max-width: 700px) {
+	.stadium-details-wrapper {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.stadium-column-left,
+	.stadium-column-right,
+	.stadium-description {
+		width: 100%;
+	}
+
+	.stadium-column-right {
+		order: 1;
+		text-align-last: center;
+	}
+
+	.stadium-column-left {
+		order: 2;
+	}
+
+	.buttons {
+		margin-bottom: 10%;
+	}
+
+	.info-image-container {
+		display: none;
+	}
+
+	.info-text-container {
+		width: 100%;
+		text-align: center;
+	}
+
+	.stadium-comments {
+		width: 100%;
+	}
+
+	.stadium-comments-all .image-container {
+		width: 35%;
+	}
+
+	.stadium-comments-all .image-container img {
+		width: 80px;
+	}
+
+	.stadium-comments-all .comment-container {
+		width: 90%;
+		padding: 0;
+	}
+
+	.comment-card {
+		width: 100%;
+	}
+
+	.stadium-comments-all .comment-container .comment-date {
+		display: none;
+	}
+
+}

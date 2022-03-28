@@ -1,0 +1,176 @@
+.my-profile-wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.my-profile-details-main {
+	display: flex;
+	width: 80%;
+}
+
+.my-profile-avatar {
+	padding: 4%;
+}
+
+.my-profile-avatar img {
+	width: 100%;
+	height: 300px;
+	object-fit: contain;
+}
+
+.my-profile-details {
+	padding: 4%;
+}
+
+.my-profile-details-all {
+	display: flex;
+	flex-direction: column;
+	padding-top: 4%;
+	width: 60%;
+}
+
+.my-profile-details-top {
+	margin: 5% 0;
+}
+
+.my-profile-details-top span {
+	background-color: var(--main-color);
+	padding: 2px 5px;
+	text-transform: uppercase;
+}
+
+.my-profile-details-about h3,
+.my-profile-details-top h3 {
+	text-transform: uppercase;
+}
+
+.my-profile-details-username h3 {
+	text-transform: uppercase;
+}
+
+.my-profile-form-input,
+.my-profile-form-textarea {
+	width: 90%;
+	font-size: 24px;
+	padding-left: 2%;
+	color: var(--random-color);
+}
+
+.my-profile-form-group {
+	margin: 2% 0;
+	text-align: left;
+}
+
+.btn-save {
+	border: none;
+	padding: 15px 20px;
+	border-radius: 15px;
+	margin: 10px;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--main-color);
+	background-color: var(--text-color);
+	border: 2px solid var(--main-color);
+}
+
+.btn-save:hover {
+	color: var(--text-color);
+	background-color: white;
+}
+
+textarea {
+	resize: none;
+}
+
+.my-profile-created-stadiums {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.list-items-results {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 200;
+}
+
+.my-profile-list-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	width: 100%;
+	padding: 1% 5%;
+	justify-content: center;
+}
+
+.my-profile-list-items article {
+	width: calc((100% - 24px) / 5);
+}
+
+.my-profile-comment-card {
+	display: flex;
+	border: 1px solid var(--border-color);
+	width: 40%;
+}
+
+.my-profile-comment-container {
+	width: 100%;
+	padding: 5%;
+	text-align: left;
+}
+
+.my-profile-comment-date {
+	background-color: var(--secondary-color);
+	color: var(--main-color);
+	padding: 0 2%;
+	font-size: 14px;
+}
+
+.my-profile-comment-user a {
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.my-profile-comment-user a:hover {
+	color: var(--main-color);
+}
+
+.my-profile-list-items-section {
+	text-align: -webkit-center;
+}
+
+@media screen and (max-width: 700px) {
+	.my-profile-comment-card {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.my-profile-details-main {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.my-profile-avatar,
+	.my-profile-details-all {
+		width: 100%;
+		text-align: center;
+		text-align-last: center;
+	}
+
+	.buttons {
+		justify-content: center;
+	}
+
+}

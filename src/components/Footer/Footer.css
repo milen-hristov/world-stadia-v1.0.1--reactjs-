@@ -1,0 +1,148 @@
+footer {
+	background-image: url("../../images/background.png");
+	background-color: var(--secondary-color);
+}
+
+.footer-wrapper>* {
+	color: white;
+}
+
+.footer-wrapper {
+	/* background-color: var(--secondary-color); */
+	display: flex;
+	justify-content: center;
+}
+
+.footer-latest-comments,
+.footer-about {
+	width: 30%;
+	padding: 2%;
+	text-align: -webkit-center;
+}
+
+.footer-latest-stadiums {
+	width: 30%;
+	padding: 2%;
+	text-align: -webkit-center;
+}
+
+.footer-heading {
+	text-transform: uppercase;
+	padding: 2%;
+	border-bottom: 1px solid white;
+	font-weight: 400;
+}
+
+
+.footer-comment-card {
+	margin: 5%;
+	/* border-top: 1px solid white; */
+}
+
+.footer-comment-card-time {
+	color: var(--main-color);
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.footer-comment-card h3 a,
+.footer-comment-card h3 {
+	color: var(--main-color);
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.footer-comment-card h3 a:hover {
+	color: white;
+}
+
+.footer-comment-card h4 {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.footer-stadium-card {
+	display: flex;
+	margin: 5%;
+}
+
+.footer-stadium-card-image-container {
+	width: 100%;
+}
+
+.footer-stadium-card-image-container img {
+	height: 100px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.footer-stadium-card-info-container h4 a,
+.footer-stadium-card-info-container span {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 400;
+	color: white;
+}
+
+.footer-stadium-card-info-container h4 a:hover {
+	color: var(--main-color);
+}
+
+.footer-stadium-card-info-container {
+	width: 25%;
+	/* align-self: center; */
+	padding: 0 3%;
+}
+
+.footer-list-items {
+	margin: 5%;
+}
+
+.footer-list-items {
+	text-decoration: none;
+}
+
+.footer-list-items li,
+.footer-list-items li a {
+	list-style: none;
+	text-decoration: none;
+	color: white;
+	font-family: 'Oswald', Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+.footer-list-items a:hover {
+	color: var(--main-color);
+}
+
+.far.fa-envelope,
+.fab.fa-linkedin {
+	margin-right: 2%;
+}
+
+.footer-outro {
+	text-align: center;
+	background-color: var(--secondary-color);
+	color: var(--main-color);
+}
+
+.footer-about .footer-heading {
+	color: var(--main-color);
+}
+
+@media screen and (max-width: 700px) {
+	.footer-wrapper {
+		display: none;
+	}
+
+	.footer-wrapper,
+	.footer-outro {
+		font-size: 14px;
+	}
+}

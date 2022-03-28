@@ -1,0 +1,14 @@
+.not-found,
+.not-found-error,
+.not-found-description {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.not-found-error {
+	font-size: 50px;
+}
+
+.not-found-wrapper {
+	padding: 10%;
+}
