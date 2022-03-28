@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { useAuthContext } from '../../contexts/AuthContext.js';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import axios from 'axios';
 
 import CommentsMyProfileCard from '../CommentCards/CommentsMyProfileCard/CommentsMyProfileCard.js';
 import StadiumCardMyProfile from '../StadiumCards/StadiumCardMyProfile/StadiumCardMyProfile.js';
+import { BASEURLIMAGEOPTIONS } from '../../config/baseUrlImageServer.js';
 import * as authService from '../../services/authService.js';
 import * as stadiumService from '../../services/stadiumService.js';
-// import axios from 'axios';
-// import baseUrlImageServer from '../../config/baseUrlImageServer.js'
 import '../MyProfile/MyProfile.css';
 
 const MyProfile = () => {
@@ -16,7 +16,7 @@ const MyProfile = () => {
     const { addNotification } = useNotificationContext();
     let [usernameError, setUsernameError] = useState({ type: 'no-error' });
     let [aboutError, setAboutError] = useState({ type: 'no-error' });
-    // let [avatarError, setAvatarError] = useState({ type: 'no-error' });
+
 
     const [stadiums, setStadiums] = useState([]);
     useEffect(() => {
@@ -113,47 +113,39 @@ const MyProfile = () => {
     }, [user._id]);
 
 
-    // let [profileImg, setProfileImg] = useState('');
+    let [profileImg, setProfileImg] = useState('');
 
-    // const onFileChange = (e) => {
-    //     setProfileImg(e.target.files[0]);
-    // }
+    const onFileChange = (e) => {
+        setProfileImg(e.target.files[0]);
+    }
 
+    const onClickUpdateAvatar = (e) => {
+        e.preventDefault();
 
-    // const onClickUpdateAvatar = (e) => {
-    //     e.preventDefault();
-        // v1
-        // const formData = new FormData();
-        // formData.append('profileImg', profileImg);
-        // v2
-        // const formData = new FormData();
-        // formData.append('file', profileImg);
+        const formData = new FormData();
+        formData.append("file", profileImg);
+        formData.append("upload_preset", BASEURLIMAGEOPTIONS.cloudinaryPreset);
 
-        // v1
-        // axios.post(baseUrlImageServer, formData, {
-        // v2
-        // axios.post(`${baseUrlImageServer}/upload`, formData, {
-        // }).then(res => {
-            // v1
-            // let avatar = res.data.userCreated.profileImg;
-            // v2
-    //         let avatar = `${baseUrlImageServer}/files/${res.data.file.filename}`;
+        axios.post(`${BASEURLIMAGEOPTIONS.cloudinary}/image/upload`, formData)
+            .then(res => {
+                let avatar = res.data.url;
 
-    //         authService.updateAvatar(userInfo, avatar, user.accessToken)
-    //             .then(result => {
-    //                 console.log(result)
-    //                 setUserInfo(result);
-    //                 addNotification('Avatar updated successfully', types.success);
-    //             })
-    //             .catch(err => {
-    //                 console.log(err);
-    //                 addNotification(`An error occurred - ${err.message}`, types.error);
-    //             })
-    //     }).catch(err => {
-    //         console.log(err);
-    //         addNotification(`An error occurred - ${err.message}`, types.error);
-    //     })
-    // }
+                authService.updateAvatar(userInfo, avatar, user.accessToken)
+                    .then(result => {
+                        // console.log(result)
+                        setUserInfo(result);
+                        addNotification('Avatar updated successfully', types.success);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        addNotification(`An error occurred - ${err.message}`, types.error);
+                    })
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+                addNotification(`An error occurred - ${err.message}`, types.error);
+            })
+    }
 
     return (
         <>
@@ -161,13 +153,12 @@ const MyProfile = () => {
                 <section className="my-profile-details-main">
                     <section className="my-profile-avatar">
                         <img src={userInfo?.avatar} alt="avatar" />
-                        {/* <li>Upload Avatar</li> */}
-                        {/* <article>
+                        <article>
                             <form onSubmit={onClickUpdateAvatar}>
                                 <input type="file" onChange={onFileChange} accept="image/png, image/gif, image/jpeg" />
-                                <button type="submit">Update Avatar</button>
+                                <button className="btn-save" type="submit">Update Avatar</button>
                             </form>
-                        </article> */}
+                        </article>
                     </section>
                     <section className="my-profile-details-all">
                         <article className="my-profile-details-top">
@@ -228,19 +219,19 @@ const MyProfile = () => {
             </section>
 
             <section className="my-profile-comments">
-            <section className="my-profile-list-items-section">
-                <article className="my-profile-stadium-comments-all-heading">
-                    {myStadiumComments !== undefined
-                        ? <h2 className="list-items-results"> Latest Comments ({myStadiumComments?.length})</h2>
-                        : <h2 className="list-items-results" >Latest Comments (0)</h2>
-                    }
-                </article>
-                <article>
-                    {myStadiumComments?.length > 0
-                        ? myStadiumComments.map(x => <CommentsMyProfileCard key={x._id} myStadiumComments={x} />)
-                        : <h2 className="list-items-results">No comments yet</h2>
-                    }
-                </article>
+                <section className="my-profile-list-items-section">
+                    <article className="my-profile-stadium-comments-all-heading">
+                        {myStadiumComments !== undefined
+                            ? <h2 className="list-items-results"> Latest Comments ({myStadiumComments?.length})</h2>
+                            : <h2 className="list-items-results" >Latest Comments (0)</h2>
+                        }
+                    </article>
+                    <article>
+                        {myStadiumComments?.length > 0
+                            ? myStadiumComments.map(x => <CommentsMyProfileCard key={x._id} myStadiumComments={x} />)
+                            : <h2 className="list-items-results">No comments yet</h2>
+                        }
+                    </article>
                 </section>
             </section>
         </>
