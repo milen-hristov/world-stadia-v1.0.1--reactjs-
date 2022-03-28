@@ -44,7 +44,7 @@ const Header = () => {
                 <nav className="header-navigation">
                     <ul className="header-row">
                         <li>
-                            <a target="_blank" rel="noreferrer" href="https://github.com/milen-hristov/world-stadia">
+                            <a target="_blank" rel="noreferrer" href="https://github.com/milen-hristov/world-stadia-v1.0.1--reactjs-">
                                 <i className="fab fa-github"></i>
                             </a>
                         </li>
