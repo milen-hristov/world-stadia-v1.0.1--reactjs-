@@ -46,3 +46,10 @@
 		height: auto;
 	}
 }
+
+@media screen and (max-width: 800px) {
+	.stadium {
+		-webkit-filter: grayscale(0);
+		filter: grayscale(0);
+	}
+}

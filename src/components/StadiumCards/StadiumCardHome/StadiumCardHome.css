@@ -4,8 +4,8 @@
 	object-fit: cover;
 	-webkit-transform: scale(1);
 	transform: scale(1);
-	/* -webkit-filter: grayscale(100%);
-	filter: grayscale(100%); */
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
 	-webkit-transition: .5s ease-in-out;
 	transition: .5s ease-in-out;
 }
@@ -44,5 +44,12 @@
 @media screen and (max-width: 1100px) {
 	.stadium {
 		height: auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.stadium {
+		-webkit-filter: grayscale(0);
+		filter: grayscale(0);
 	}
 }
