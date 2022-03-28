@@ -23,7 +23,7 @@ b. Private Part (Available for Registered Users)
 The project is deployed on:
 
 - Firebase (Front-end):
-https://world-stadia-c8c15.web.app/
+https://world-sports-stadiums.web.app/
 
 - Heroku (Back-end) - auth and main functionalities (SoftUni demo server):
 https://softuni-server-world-stadia.herokuapp.com/
