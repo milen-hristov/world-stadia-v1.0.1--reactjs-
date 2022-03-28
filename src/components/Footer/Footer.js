@@ -60,9 +60,9 @@ const Footer = () => {
                     {stadiums.length > 0
                         ? stadiums.slice(0, 3).map(x => <StadiumCardLatestFooter key={x._id} stadiums={x} />)
                         : (<>
-                            <article>
+                            {/* <article>
                                 <img src="images/no-latest.jpg" alt="img" />
-                            </article>
+                            </article> */}
                             <article>
                                 <h4> No stadiums added yet </h4>
                             </article>
