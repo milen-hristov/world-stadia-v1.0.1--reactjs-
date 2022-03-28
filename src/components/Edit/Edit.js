@@ -4,11 +4,13 @@ import { useHistory } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useUpdateContext } from '../../contexts/UpdateContextFooter.js';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import axios from 'axios';
 
 import * as stadiumService from '../../services/stadiumService.js';
 import countryList from '../../helpers/countryList.js'
 import getGoogleMapLinkEmbed from '../../helpers/getGoogleMapEmbedLink.js';
 import errorsCheck from '../../helpers/errorsCheck.js';
+import { BASEURLIMAGEOPTIONS } from '../../config/baseUrlImageServer.js';
 import '../Edit/Edit.css';
 
 const Edit = ({
@@ -45,6 +47,21 @@ const Edit = ({
             })
     }, [stadiumId]);
 
+    let [stadiumImg, setstadiumImg] = useState('');
+
+    const onFileChange = (files) => {
+        const imageFormData = new FormData();
+        imageFormData.append("file", files[0]);
+        imageFormData.append("upload_preset", BASEURLIMAGEOPTIONS.cloudinaryPreset);
+
+        axios.post(`${BASEURLIMAGEOPTIONS.cloudinary}/image/upload`, imageFormData)
+            .then(res => {
+                setstadiumImg(res.data.url);
+            }).catch(err => {
+                addNotification(`An error occurred - ${err.message}`, types.error);
+            })
+    }
+
     const onStadiumEdit = (e) => {
 
         e.preventDefault();
@@ -59,7 +76,11 @@ const Edit = ({
         let addressRaw = formData.get('address').trim();
         let address = getGoogleMapLinkEmbed(addressRaw).toLowerCase();
 
-        let imageUrl = formData.get('imageUrl').trim();
+        let imageUrl = stadium.imageUrl;
+        if (stadiumImg != "") {
+            imageUrl = stadiumImg;
+        }
+
         let description = formData.get('description').trim();
 
         let newStadium = {
@@ -151,15 +172,15 @@ const Edit = ({
         }
     };
 
-    const validateImageUrl = (e) => {
-        let currentName = e.target.value;
+    // const validateImageUrl = (e) => {
+    //     let currentName = e.target.value;
 
-        if (!currentName.match(/^https?:\/{2}/)) {
-            setErrors(state => ({ ...state, imageUrl: 'Please add Image url' }));
-        } else {
-            setErrors(state => ({ ...state, imageUrl: false }));
-        }
-    };
+    //     if (!currentName.match(/^https?:\/{2}/)) {
+    //         setErrors(state => ({ ...state, imageUrl: 'Please add Image url' }));
+    //     } else {
+    //         setErrors(state => ({ ...state, imageUrl: false }));
+    //     }
+    // };
 
     const validateDescription = (e) => {
         let currentName = e.target.value;
@@ -184,6 +205,12 @@ const Edit = ({
                         : null
                     }
                 </article>
+
+                <article className="form-group-image">
+                    <label className="upload-image-field btn-save" htmlFor="upload-image">Upload stadium image</label>
+                    <input className="upload-image-input" type="file" id='upload-image' onChange={(e) => onFileChange(e.target.files)} accept="image/png, image/gif, image/jpeg" />
+                </article>
+
                 <article className="form-group">
                     <select id="type" name="country" className="stadium-form-input" value={stadium.country} onChange={(e) => setStadium(s => ({ ...s, country: e.target.value }))} >
                         {countryList.map(x => <option key={x} value={x}>{x}</option>)}
@@ -225,14 +252,6 @@ const Edit = ({
                 </article>
 
                 <article className="form-group">
-                    <input type="URL" name="imageUrl" id="imageUrl" className="stadium-form-input" defaultValue={stadium.imageUrl} placeholder="Image URL *" onChange={validateImageUrl} required />
-                    {errors.imageUrl
-                        ? <p className="error">{errors.imageUrl}</p>
-                        : null
-                    }
-                </article>
-
-                <article className="form-group">
                     <article className="form-group">
                         <textarea name="description" placeholder="Description*" className="stadium-form-input" defaultValue={stadium.description} onChange={validateDescription} rows={7} required />
                     </article>
@@ -243,7 +262,7 @@ const Edit = ({
                 </article>
 
                 <article className="form-group">
-                    <button className="btn-submit"  type="submit">Edit</button>
+                    <button className="btn-submit" type="submit">Edit</button>
                 </article>
                 {serverResponse !== ''
                     ? <article className="error">Operation cannot be executed - {serverResponse}. Not authorized to edit stadium.</article>
