@@ -133,7 +133,7 @@ const Create = () => {
             address = result;
             setErrors(state => ({ ...state, address: false }));
         } else {
-            setErrors(state => ({ ...state, address: 'Please add Google Map Embed url link' }));
+            setErrors(state => ({ ...state, address: '<iframe src="https://..' }));
         }
     };
 
