@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import UserCard from './UserCard/UserCard.js';
 import * as authService from '../../services/authService.js';

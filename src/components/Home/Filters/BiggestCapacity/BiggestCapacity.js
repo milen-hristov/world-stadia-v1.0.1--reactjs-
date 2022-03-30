@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import StadiumCardHomeCapacity from '../../../StadiumCards/StadiumCardHomeCapacity/StadiumCardHomeCapacity.js';
 import FilterNavigation from '../FilterNavigation/FilterNavigation.js';

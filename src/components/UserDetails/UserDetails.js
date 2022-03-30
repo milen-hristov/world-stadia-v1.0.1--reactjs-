@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import StadiumCardMyProfile from '../StadiumCards/StadiumCardMyProfile/StadiumCardMyProfile.js'
 import CommentsMyProfileCard from '../CommentCards/CommentsMyProfileCard/CommentsMyProfileCard.js'

@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext.js';
@@ -61,7 +61,7 @@ const Login = () => {
                     <button className="btn-submit" type="submit">Login Now</button>
                 </article>
                 <article className="switch-form">
-                    <p>Don't have an account yet? <Link to="/register"><span>Sign Up Now</span></Link></p>
+                    <p>Don&apos;t have an account yet? <Link to="/register"><span>Sign Up Now</span></Link></p>
                 </article>
             </form>
         </section>

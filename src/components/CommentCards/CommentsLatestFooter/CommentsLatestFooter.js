@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 import * as stadiumService from '../../../services/stadiumService.js';
 import '../CommentsLatestFooter/CommentsLatestFooter.css';

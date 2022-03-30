@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 // import { useEffect } from 'react';
 
@@ -86,7 +87,7 @@ const Header = () => {
                                     </li>
                                 </>)
 
-                            : <li><Link to="/login">I'm Guest</Link></li>
+                            : <li><Link to="/login">I&apos;m Guest</Link></li>
                         }
                     </ul>
                 </nav>

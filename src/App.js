@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { isAuth } from './hoc/isAuthenticated.js';
 import { isGuest } from './hoc/isGuest.js';

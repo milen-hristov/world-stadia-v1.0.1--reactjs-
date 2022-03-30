@@ -1,6 +1,11 @@
 module.exports = {
-    extends: 'react-app',
+    extends: [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        'react-app',
+    ],
     rules: {
-        "eqeqeq": "off"
+        "eqeqeq": "off",
+       'react/prop-types': ['off']
     }
 }

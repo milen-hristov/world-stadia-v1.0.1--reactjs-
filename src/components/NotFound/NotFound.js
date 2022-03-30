@@ -1,3 +1,4 @@
+import React from 'react';
 import '../NotFound/NotFound.css';
 
 const NotFound = () => {
