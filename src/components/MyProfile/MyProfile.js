@@ -81,7 +81,7 @@ const MyProfile = () => {
 
         authService.updateAboutMe(userInfo, aboutMe, user.accessToken)
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 setUserInfo(result);
                 addNotification('About Me updated successfully', types.success);
                 e.target.reset();
@@ -140,7 +140,7 @@ const MyProfile = () => {
                         console.log(err);
                         addNotification(`An error occurred - ${err.message}`, types.error);
                     })
-                console.log(res);
+                // console.log(res);
             }).catch(err => {
                 console.log(err);
                 addNotification(`An error occurred - ${err.message}`, types.error);
