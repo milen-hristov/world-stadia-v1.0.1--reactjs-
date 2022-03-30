@@ -34,7 +34,7 @@ const MyStadiums = () => {
             <section className="list-items">
                 {stadiums?.length > 0
                     ? stadiums.map(x => <StadiumCardHome key={x._id} stadiums={x} />)
-                    : <h3 className="list-items-results">No stadiums added yet. Add your first one now - <Link to="/stadiums/create">  <span>here</span></Link></h3>
+                    : <h3 className="list-items-results">No stadiums added yet.</h3>
                 }
             </section>
         </section>
