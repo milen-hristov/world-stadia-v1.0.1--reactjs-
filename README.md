@@ -25,5 +25,6 @@ The project is deployed on:
 - Firebase (Front-end):
 https://world-sports-stadiums.web.app/
 
+[Currently BE is not available - the demo will be deployed to a new platform]
 - Heroku (Back-end) - auth and main functionalities (SoftUni demo server):
 https://softuni-server-world-stadia.herokuapp.com/
